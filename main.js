@@ -1,3 +1,5 @@
+// date 
+
 const timeDisplay= () => {
   const date = new Date();
  
@@ -14,3 +16,16 @@ const timeDisplay= () => {
   document.querySelector(".year").innerHTML = yyyy;
 }
 setInterval(timeDisplay, 1000);
+
+//function
+// getting all required elements
+
+const inputBox = document.querySelector(".inputField input");
+const addBtn = document.querySelector(".inputField button");
+
+inputBox.onkeyup = () => {
+  let userData = inputBox.value;
+  if (userData.trim() != 0) {
+    addBtn.classList.add("active");
+  }
+}
