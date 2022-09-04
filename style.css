@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Roboto:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(232, 114, 114) 0%, rgb(176, 65, 117) 100%);
+}
+
+.wrapper {
+  margin: 120px auto; 
+  max-width: 400px;
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.wrapper header{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.wrapper .inputField {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.inputField input {
+  width: 85%;
+  height: 100%;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 17px;
+  border-radius: 3px;
+  padding-left: 15px;
+}
+
+.inputField button {
+  width: 60px;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: rgb(203, 194, 194);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.wrapper .todoList{
+  line-height: 45px;
+  position: relative;
+  background-color: rgb(233, 229, 229);
+  border-radius: 3px;
+  padding: 0 15px; 
+}
+
+/* .todoList label{} */
+
+.todoList span {
+  position: absolute;
+  right: 0px;
+  /*display: none;*/
+  width: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wrapper .footer {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.footer button {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 15px;
+}
+
+#show, #clear {
+  margin: 6px;
+}
+
+.date {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(190, 54, 54);
+}
+
+
+
+
+
+
+
+
