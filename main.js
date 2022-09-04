@@ -27,5 +27,32 @@ inputBox.onkeyup = () => {
   let userData = inputBox.value;
   if (userData.trim() != 0) {
     addBtn.classList.add("active");
+  } else {
+    addBtn.classList.remove("active");
   }
+}
+
+addBtn.onclick = () => {
+  let userData = inputBox.value;
+  let getLocalStorage = localStorage.getItem("new Todo");
+  if (getLocalStorage == null) {
+    listArr = [];
+  }else {
+    listArr = JSON.parse(getLocalStorage);
+  }
+  listArr.push(userData);
+  localStorage.setItem("New Todo", JSON.stringify(listArr)); 
+}
+
+function showTasks() {
+  let getLocalStorage = localStorage.getItem("new Todo");
+  if (getLocalStorage == null) {
+    listArr = [];
+  }else {
+    listArr = JSON.parse(getLocalStorage);
+  }
+  let newTag = '';
+  listArr.forEach((element, index) => {
+    newTag = ``;
+  });
 }
