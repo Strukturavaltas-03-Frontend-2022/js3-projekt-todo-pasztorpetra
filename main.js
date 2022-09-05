@@ -22,6 +22,8 @@ setInterval(timeDisplay, 1000);
 
 const inputBox = document.querySelector(".inputField input");
 const addBtn = document.querySelector(".inputField button");
+const todoList = document.querySelector(".todoList");
+const deleteAllBtn = document.querySelector(".footer button");
 
 inputBox.onkeyup = () => {
   let userData = inputBox.value;
@@ -31,6 +33,8 @@ inputBox.onkeyup = () => {
     addBtn.classList.remove("active");
   }
 }
+
+showTasks();
 
 addBtn.onclick = () => {
   let userData = inputBox.value;
@@ -42,17 +46,38 @@ addBtn.onclick = () => {
   }
   listArr.push(userData);
   localStorage.setItem("New Todo", JSON.stringify(listArr)); 
+  showTasks();
 }
 
-function showTasks() {
+const showTasks = () => {
   let getLocalStorage = localStorage.getItem("new Todo");
   if (getLocalStorage == null) {
     listArr = [];
   }else {
     listArr = JSON.parse(getLocalStorage);
   }
+  const pendingNumb = document.querySelector(".pendingNumb");
+  pendingNumb.texcontent = listArr.length;
   let newTag = '';
   listArr.forEach((element, index) => {
-    newTag = ``;
+    newTag += `<input type="checkbox" name=${index} value=${index}><label>input type="checkbox"><label for=${index}>${element}</label>
+    <span onclick="deleteTask(${index})";><i class="fas fa-trash"></i></span>`;
   });
+  todoList.innerHTML = newTag;
+  inputBox.value = "";
+}
+
+const deleteTask = (index) => {
+  let getLocalStorage = localStorage.getItem("new Todo");
+  listArr = JSON.parse(getLocalStorage);
+  listArr.splice(index, 1);
+
+  localStorage.setItem("New Todo", JSON.stringify(listArr)); 
+  showTasks();
+}
+
+deleteAllBtn.onclick = () => {
+  listArr = [];
+  localStorage.setItem("New Todo", JSON.stringify(listArr)); 
+  showTasks();
 }
